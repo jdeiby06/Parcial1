@@ -4,7 +4,7 @@ public class Libro {
     protected String autor;
     protected int numEjemplares;
     protected int numPrestados;
-        // Constructor vacio por defecto
+        
     public Libro() {
         this.titulo = "";
         this.autor = "";
@@ -12,7 +12,7 @@ public class Libro {
         this.numPrestados = 0;
     }
 
-    // Constructor con parámetros
+    
     public Libro(String titulo, String autor, int numEjemplares, int numPrestados) {
         this.titulo = titulo;
         this.autor = autor;
@@ -20,7 +20,33 @@ public class Libro {
         this.numPrestados = 1;
     }
 
-    // Métodos get y set
+    public boolean prestamo() {
+        if (numPrestados < numEjemplares) {
+            numPrestados=numPrestados + 1;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean devolucion() {
+        if (numPrestados > 0) {
+            numPrestados=numPrestados - 1;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void  Imprimir() {
+        System.out.println("Titulo: " + titulo);
+        System.out.println("Autor: " + autor);
+        System.out.println("Numero de ejemplares: " + numEjemplares);
+        System.out.println("Numero de ejemplares prestados: " + numPrestados);
+    }
+
+
+    
     public String getTitulo() {
         return titulo;
     }
